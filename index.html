@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rose Day 🌹</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(#ffd6dc, #ffeef1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+h1, h2, p {
+  color: #8b1d2c;
+}
+
+button {
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 8px;
+  background: #ff9fb2;
+  color: #7a1020;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 160px;
+  margin: 15px 0;
+}
+
+.warning {
+  background: #ff6f6f;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.roses {
+  width: 220px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h2>This is how people in love look like</h2>
+  <h1>I’ve something for you…</h1>
+  <p>Not a gift you can hold, but something you’ll feel 💖</p>
+  <p><b>Wanna see???</b></p>
+  <button onclick="nextPage(1)">Yes</button>
+  <button onclick="angry()">No</button>
+</div>
+
+<!-- PAGE 2 ANGRY -->
+<div class="page">
+  <img src="https://i.imgur.com/Z7cYkqY.png">
+  <h2>How dare you say NO to me 😾</h2>
+  <button onclick="goTo(0)">Try Again</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <img src="https://i.imgur.com/1X5R1wM.png">
+  <h2>hehehehe 😼</h2>
+  <p>click on the gift box 🎁</p>
+  <button onclick="nextPage(2)">Open Gift</button>
+</div>
+
+<!-- PAGE 4 WARNING -->
+<div class="page">
+  <div class="warning">
+    ⚠ WARNING ⚠<br>
+    Opening this package<br>
+    will cause extreme<br>
+    happiness 💕
+  </div>
+  <p>Do you still want to try?</p>
+  <button onclick="nextPage(3)">YES</button>
+</div>
+
+<!-- PAGE 5 FINAL -->
+<div class="page">
+  <h1>HAPPY ROSE DAY</h1>
+  <h2>MY LOVE 🌹</h2>
+  <img class="roses" src="https://i.imgur.com/6XKJp0S.png">
+</div>
+
+</div>
+
+<script>
+let pages = document.querySelectorAll(".page");
+let current = 0;
+
+function nextPage(step) {
+  pages[current].classList.remove("active");
+  current += 1;
+  pages[current].classList.add("active");
+}
+
+function goTo(index) {
+  pages[current].classList.remove("active");
+  current = index;
+  pages[current].classList.add("active");
+}
+
+function angry() {
+  pages[current].classList.remove("active");
+  current = 1;
+  pages[current].classList.add("active");
+}
+</script>
+
+</body>
+</html>
